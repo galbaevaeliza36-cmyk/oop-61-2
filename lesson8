@@ -1,0 +1,51 @@
+class Pizza:
+    def __init__(self, name, size, toppings):
+        self.name = name
+        self.size = size
+        self.toppings = toppings
+        self.baked = False
+
+    def bake(self):
+        self.baked = True
+        return f"{self.name} пицца готова!"
+
+    def add_topping(self, topping):
+        self.toppings.append(topping)
+        return f"{topping} добавлен в {self.name} пиццу."
+
+    def info(self):
+        status = "готова" if self.baked else "не готова"
+        toppings_list = ", ".join(self.toppings)
+        return f"Пицца {self.name}, размер: {self.size}, ингредиенты: {toppings_list}, статус: {status}"
+
+
+pizza1 = Pizza("Маргарита", "средняя", ["сыр", "томат"])
+print(pizza1.info())
+pizza1.add_topping("базилик")
+pizza1.bake()
+print(pizza1.info())class Pizza:
+    def __init__(self, name, size, toppings):
+        self.name = name
+        self.size = size
+        self.toppings = toppings
+        self.baked = False
+
+    def bake(self):
+        self.baked = True
+        return f"{self.name} пицца готова!"
+
+    def add_topping(self, topping):
+        self.toppings.append(topping)
+        return f"{topping} добавлен в {self.name} пиццу."
+
+    def info(self):
+        status = "готова" if self.baked else "не готова"
+        toppings_list = ", ".join(self.toppings)
+        return f"Пицца {self.name}, размер: {self.size}, ингредиенты: {toppings_list}, статус: {status}"
+
+
+pizza1 = Pizza("Маргарита", "средняя", ["сыр", "томат"])
+print(pizza1.info())
+pizza1.add_topping("базилик")
+pizza1.bake()
+print(pizza1.info())
