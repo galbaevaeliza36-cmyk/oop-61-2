@@ -1,0 +1,21 @@
+Команды для регистрации ваших данных
+пишутся один на ПК
+git config --global user.name "galbaevaeliza36-cmyk"
+git config --global user.email "galbaevaeliza36@gmail.com"
+============================================================
+Пишутся один раз на проект
+git init
+git remote add origin https://github.com/galbaevaeliza36-cmyk/oop-61-2.git
+===============================================================
+
+
+
+git status
+нужно создать файл .gitignore
+git add .
+git commit -m "same text"
+git push origin master
+
+
+
+
