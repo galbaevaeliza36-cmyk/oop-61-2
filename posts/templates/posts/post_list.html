@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Мой Блог</title>
+        <style> body { font-family: sans-serif; max-width: 800px; margin: auto; padding: 20px; } </style>
+    </head>
+    <body>
+        <h1>Добро пожаловать в мой блог!</h1>
+        {% if raptor_mini_enabled %}
+            <div style="background:#fffae6;border:1px solid #ffd42a;padding:10px;margin-bottom:15px;">
+                <strong>Raptor mini (Preview):</strong> {{ raptor_mini_message }}
+            </div>
+        {% endif %}
+        <h2>Сегодня мы научимся правильно создавать TodoList</h2>
+        <hr>
+
+        {% for post in posts %}
+            <article>
+                <h2>
+                    <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a>
+                </h2>
+                <p><i>Опубликовано: {{ post.pub_date }}</i></p>
+                <p>{{ post.content|truncatewords:30 }}</p> </article>
+            <hr>
+        {% endfor %}
+
+    </body>
+    </html>
