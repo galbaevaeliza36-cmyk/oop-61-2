@@ -26,3 +26,65 @@ iphone = Phone("iphone", 20000,20)
 iphone.get_discount(20)
 print(iphone.apply_extra_discount("Eli0206"))
 print(iphone.get_price())
+
+
+
+
+from abc import ABC, abstractmethod
+
+
+# Абстрактный класс
+class PaymentMethod(ABC):
+
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+    @abstractmethod
+    def refund(self, amount):
+        pass
+
+
+# Реализации способов оплаты
+class CardPayment(PaymentMethod):
+    def pay(self, amount):
+        print(f"Оплата картой: {amount}")
+
+    def refund(self, amount):
+        print(f"Возврат на карту: {amount}")
+
+
+class CashPayment(PaymentMethod):
+    def pay(self, amount):
+        print(f"Оплата наличными: {amount}")
+
+    def refund(self, amount):
+        print(f"Возврат наличными: {amount}")
+
+
+class CryptoPayment(PaymentMethod):
+    def pay(self, amount):
+        print({"type": "crypto", "amount": amount, "currency": "USDT"})
+
+    def refund(self, amount):
+        print({"refund": True, "amount": amount, "currency": "USDT"})
+
+
+# Класс PaymentProcessor
+class PaymentProcessor:
+    def __init__(self, payment_method: PaymentMethod):
+        self.payment_method = payment_method
+
+    def process(self, amount):
+        self.payment_method.pay(amount)
+
+
+# Примеры вызовов
+processor = PaymentProcessor(CardPayment())
+processor.process(100)
+
+processor = PaymentProcessor(CashPayment())
+processor.process(50)
+
+processor = PaymentProcessor(CryptoPayment())
+processor.process(200)
